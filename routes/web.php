@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('bocaiuva');
+    return view('index');
 });
 
 Route::get('/fashions' , 'FashionsController@index')->name('fashions.index');
