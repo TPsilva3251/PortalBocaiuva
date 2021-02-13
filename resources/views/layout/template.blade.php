@@ -13,6 +13,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img src="imagens/Brasao_bocaiuva_mg.jpg" height="100px" >
         <a class="navbar-brand" href="/">Bocaiúva</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -38,13 +39,16 @@
                         <a class="dropdown-item" href="#">Repartições Públicas</a>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/quem_somos">Sobre o Portal</a>
+                </li>
                 {{-- <li class="nav-item">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li> --}}
             </ul>
           {{-- <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <input class="form-control mr-sm-2" type="search" placeholder="O que você procura?" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
           </form> --}}
         </div>
       </nav>
