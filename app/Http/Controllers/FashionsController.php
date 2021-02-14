@@ -35,7 +35,16 @@ class FashionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data_imagen=$request->image;
+        // $iamgen=$data_form['image'];
+        if($request->hasFile('image') && $request->file('image')->isValid())
+        {
+            $name="legal";
+            $extensio = $request->image->extension();
+            $name_file = "{$name}.{$extensio}";
+        }
+        dd($name_file);
+        return view('fashions');
     }
 
     /**
