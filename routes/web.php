@@ -33,4 +33,14 @@ Route::get('/pontos_turisticos', function () {
 Route::get('/quem_somos', function () {
     return view('quem_somos');
 });
+//
+//
+Route::get('/categorias', function () {
+    return view('categoria_create');
+});
+Route::post('/categories/create','CategoriesController@store')->name('create_categoria');
+//
+//
+Route::get('/parceiro_create','PartnersController@create');
 
+Route::post('/parceiro/create','PartnersController@store')->name('create_parceiro');

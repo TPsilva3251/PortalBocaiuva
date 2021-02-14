@@ -1,21 +1,29 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Partners;
+use App\Models\Categories;
 
-use App\Fashions;
 use Illuminate\Http\Request;
 
-
-class FashionsController extends Controller
+class PartnersController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    private $parceiro;
+    private $categoria;
+
+    public function __construct(partners $parceiro, categories $categoria)
+    {
+        $this->parceiro=$parceiro;
+        $this->cateroria=$categoria;
+    }
     public function index()
     {
-        return view('fashions');
+        //
     }
 
     /**
@@ -25,7 +33,7 @@ class FashionsController extends Controller
      */
     public function create()
     {
-        //
+        return view ('parceiro_create_edit');
     }
 
     /**
@@ -36,26 +44,28 @@ class FashionsController extends Controller
      */
     public function store(Request $request)
     {
-        // $data_imagen=$request->image;
-        // dd($data_imagen);
-        // $iamgen=$data_form['image'];
-        if($request->hasFile('image') && $request->file('image')->isValid())
+        $data_form=$request->all();
+        if($request->hasFile('img1')  && $request->file('img1')->isValid())
         {
-            $name="legal";
-            $extensio = $request->image->extension();
-            $name_file = "{$name}.{$extensio}";
+            // $name="legal1";
+            $extensio = $request->img1->extension();
+            date_default_timezone_set('America/Sao_Paulo');
+            $date = date('Y-m-d H:i');
+            $name_file = "{$date}.{$extensio}";
+            $new_name=kebab_case($name_file);
         }
-        dd($name_file);
-        return view('fashions');
+        dd($new_name);
+
+        dd($data_form);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Fashions  $fashions
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Fashions $fashions)
+    public function show($id)
     {
         //
     }
@@ -63,10 +73,10 @@ class FashionsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Fashions  $fashions
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Fashions $fashions)
+    public function edit($id)
     {
         //
     }
@@ -75,10 +85,10 @@ class FashionsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Fashions  $fashions
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Fashions $fashions)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -86,10 +96,10 @@ class FashionsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Fashions  $fashions
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Fashions $fashions)
+    public function destroy($id)
     {
         //
     }

@@ -7,6 +7,8 @@
     <a href="/historia" class="btn btn-primary">História</a>
     <a href="/dados_demograficos" class="btn btn-primary">Dados Demográficos</a>
     <a href="/pontos_turisticos" class="btn btn-primary">Pontos Turísticos</a>
+    <a href="/categorias" class="btn btn-primary">Categorias</a>
+    <a href="/parceiro_create" class="btn btn-primary">Parceiro</a>
 </div>
 
 @include('/layout/footer')
