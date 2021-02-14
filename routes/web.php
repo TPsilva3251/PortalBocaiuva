@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/fashions' , 'FashionsController@index')->name('fashions.index');
+Route::post('/images/store','ImagesController@store')->name('imagen');
 
 Route::get('/historia', function () {
     return view('historia');
@@ -32,3 +33,4 @@ Route::get('/pontos_turisticos', function () {
 Route::get('/quem_somos', function () {
     return view('quem_somos');
 });
+
