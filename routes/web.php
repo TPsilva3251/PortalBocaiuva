@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/fashions' , 'FashionsController@index')->name('fashions.index');
-Route::post('/images/store','ImagesController@store')->name('imagen');
+Route::post('/fashions/store','FashionsController@store')->name('imagen');
 
 Route::get('/historia', function () {
     return view('historia');
