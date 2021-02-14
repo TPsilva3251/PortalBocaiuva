@@ -35,7 +35,8 @@ class FashionsController extends Controller
      */
     public function store(Request $request)
     {
-        $data_imagen=$request->image;
+        // $data_imagen=$request->image;
+        // dd($data_imagen);
         // $iamgen=$data_form['image'];
         if($request->hasFile('image') && $request->file('image')->isValid())
         {
