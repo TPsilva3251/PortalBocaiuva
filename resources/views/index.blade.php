@@ -9,6 +9,7 @@
     <a href="/pontos_turisticos" class="btn btn-primary">Pontos Turísticos</a>
     <a href="/categorias" class="btn btn-primary">Categorias</a>
     <a href="/parceiro_create" class="btn btn-primary">Parceiro</a>
+    <a href="/parceiro_index" class="btn btn-primary">Parceiro Index</a>
 </div>
 
 @include('/layout/footer')
