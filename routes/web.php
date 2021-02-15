@@ -44,3 +44,5 @@ Route::post('/categories/create','CategoriesController@store')->name('create_cat
 Route::get('/parceiro_create','PartnersController@create');
 
 Route::post('/parceiro/create','PartnersController@store')->name('create_parceiro');
+
+Route::get('/parceiro_index', 'PartnersController@index');
