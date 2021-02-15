@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Partners extends Model
 {
 
-    protected $fillabe=['nome','categories_id','descricao','localizacao','face','insta','whats',
+    protected $fillable=['nome','categories_id','descricao','localizacao','face','insta','whats',
                         'email','img1','img2','img3'];
 
-    public function category()
+    public function categories()
     {
         return $this->belongsTo(Categories::class);
     }
