@@ -13,17 +13,21 @@ class PartnersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    private $parceiro;
-    private $categoria;
+    private $partners;
+    private $categories;
 
-    public function __construct(partners $parceiro, categories $categoria)
+    public function __construct(partners $partners, categories $categories)
     {
-        $this->parceiro=$parceiro;
-        $this->cateroria=$categoria;
+        $this->partners=$partners;
+        $this->categories=$categories;
     }
     public function index()
     {
-        //
+        $parceiros = $this->partners->all();
+        // dd($parceiros);
+        $categorias = $this->categories->all();
+        // dd($parceiros,$categorias);
+        return view('parceiro_index', compact('parceiros','categorias'));
     }
 
     /**
@@ -33,7 +37,9 @@ class PartnersController extends Controller
      */
     public function create()
     {
-        return view ('parceiro_create_edit');
+       $categorias = $this->categories->all();
+    //    dd($categorias);
+        return view ('parceiro_create_edit', compact('categorias'));
     }
 
     /**
@@ -45,18 +51,31 @@ class PartnersController extends Controller
     public function store(Request $request)
     {
         $data_form=$request->all();
+
         if($request->hasFile('img1')  && $request->file('img1')->isValid())
         {
-            // $name="legal1";
             $extensio = $request->img1->extension();
             date_default_timezone_set('America/Sao_Paulo');
             $date = date('Y-m-d H:i');
             $name_file = "{$date}.{$extensio}";
             $new_name=kebab_case($name_file);
         }
-        dd($new_name);
+        if($request->hasFile('img2')  && $request->file('img1')->isValid())
+        {
+            $extensio = $request->img1->extension();
+            date_default_timezone_set('America/Sao_Paulo');
+            $date = date('Y-m-d H:i');
+            $name_file = "{$date}.{$extensio}";
+            $new_name1=kebab_case($name_file);
+        }
+        $data_form['img1'] = $new_name;
+        $data_form['img2'] = $new_name1;
+        $upload = $request->img1->store('products');
+        $upload = $request->img2->store('products');
+        $upload = $request->img3->store('products');
+        $partners = new Partners($data_form);
+        $partners->save();
 
-        dd($data_form);
     }
 
     /**
