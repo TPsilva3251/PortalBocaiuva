@@ -21,3 +21,9 @@ iframe {
     color: #1b9bca;
     text-align: center;
 }
+
+.division-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
