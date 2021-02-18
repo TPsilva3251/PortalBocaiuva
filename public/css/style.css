@@ -22,8 +22,9 @@ iframe {
     text-align: center;
 }
 
-.division-footer {
-    position: absolute;
-    bottom: 0;
+
+/* .division-footer {
+    position: fixed;
+    bottom: 0%;
     width: 100%;
-}
+} */

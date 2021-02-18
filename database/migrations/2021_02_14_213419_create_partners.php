@@ -24,9 +24,7 @@ class CreatePartners extends Migration
             $table->string('insta');
             $table->string('whats');
             $table->string('email');
-            $table->string('img1');
-            $table->string('img2');
-            $table->string('img3');
+            $table->string('img');
             $table->timestamps();
         });
     }

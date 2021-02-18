@@ -54,7 +54,7 @@ class PartnersController extends Controller
     {
         $data_form=$request->all();
 
-        if($request->hasFile('img1')  && $request->file('img1')->isValid())
+        if($request->hasFile('img')  && $request->file('img1')->isValid())
         {
             $extensio = $request->img1->extension();
             date_default_timezone_set('America/Sao_Paulo');
@@ -62,19 +62,9 @@ class PartnersController extends Controller
             $name_file = "{$date}.{$extensio}";
             $new_name=kebab_case($name_file);
         }
-        if($request->hasFile('img2')  && $request->file('img1')->isValid())
-        {
-            $extensio = $request->img1->extension();
-            date_default_timezone_set('America/Sao_Paulo');
-            $date = date('Y-m-d H:i');
-            $name_file = "\storage\products\.{$date}.{$extensio}";
-            $new_name1=kebab_case($name_file);
-        }
-        $data_form['img1'] = $new_name;
-        $data_form['img2'] = $new_name1;
-        $upload = $request->img1->store('products');
-        $upload = $request->img2->store('products');
-        $upload = $request->img3->store('products');
+
+        $data_form['img'] = $new_name;
+        $upload = $request->img->store('products');
         $partners = new Partners($data_form);
         $partners->save();
 
