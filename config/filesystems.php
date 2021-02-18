@@ -14,7 +14,7 @@ return [
     */
 
     // 'default' => env('FILESYSTEM_DRIVER', 'local'),
-    'default' => env('FILESYSTEM_DRIVER', 'public'),
+    // 'default' => env('FILESYSTEM_DRIVER', 'public'),
 
 
     /*
@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'cloud' => env('FILESYSTEM_CLOUD', 's3'),
+    'default' => env('FILESYSTEM_CLOUD', 's3'),
 
     /*
     |--------------------------------------------------------------------------
@@ -53,7 +53,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL').'/public',
             'visibility' => 'public',
         ],
 

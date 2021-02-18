@@ -21,12 +21,14 @@ class PartnersController extends Controller
         $this->partners=$partners;
         $this->categories=$categories;
     }
-    public function index()
+    public function index(Request $request)
     {
         $parceiros = $this->partners->all();
         // dd($parceiros);
         $categorias = $this->categories->all();
         // dd($parceiros,$categorias);
+        // $request->imagem;
+        // dd($request);
         return view('parceiro_index', compact('parceiros','categorias'));
     }
 
@@ -65,7 +67,7 @@ class PartnersController extends Controller
             $extensio = $request->img1->extension();
             date_default_timezone_set('America/Sao_Paulo');
             $date = date('Y-m-d H:i');
-            $name_file = "{$date}.{$extensio}";
+            $name_file = "\storage\products\.{$date}.{$extensio}";
             $new_name1=kebab_case($name_file);
         }
         $data_form['img1'] = $new_name;
