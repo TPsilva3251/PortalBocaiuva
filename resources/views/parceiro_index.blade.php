@@ -5,9 +5,19 @@
         <section>
             @foreach ($parceiros as $parceiro)
                 <td>
-                    <div class="form-group ">
-                        <input type="text" class="form-control" value="{{$parceiro->nome}}">
-                        <img src="\storage\products\6NuaHPUPF315V8q1UX3WtToktTlomEEbdA29as9y.jpeg" width="215px">
+                    <div class="card">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <input type="text" class="form-control" value="{{$parceiro->nome}}">
+                            </div>
+                            <div class="col-6">
+                                <img src="{{$parceiro->img}}" width="350px">
+                            </div>
+                            <div class="col-6">
+                                <iframe src="{{$parceiro->localizacao}}" height="250px" width="350px" frameborder="0"></iframe>
+                            </div>
+
+                        </div>
                     </div>
                 </td>
             @endforeach

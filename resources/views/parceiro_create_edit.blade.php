@@ -20,7 +20,9 @@
         <br>
         <div class="row g-3">
             <div class="col-12">
-                <input type="text" class="form-control" name="descricao" placeholder="Descrição da atividade">
+                <label for="descricao">Descrição da atividade</label>
+                <textarea class="form-control" name="descricao" placeholder="Descrição da atividade">
+                </textarea>
             </div>
         </div>
         <br>
@@ -59,7 +61,7 @@
                 <div class="img-group">
                     <img src="https://i.pinimg.com/originals/de/f6/96/def69643889ee29e232637646e839064.jpg" width="350" height="350px" name="img" id="img">
                     <br><br>
-                    <input type="text" class="form-control" name="img3" id="timg" placeholder="Digite a url da imagem">
+                    <input type="text" class="form-control" name="img" id="timg" placeholder="Digite a url da imagem">
                     <br>
                     <button type="button" class="btn btn-outline-secondary" id="bimg">Visualizar</button>
                 </div>

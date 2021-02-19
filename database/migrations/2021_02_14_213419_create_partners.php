@@ -18,13 +18,13 @@ class CreatePartners extends Migration
             $table->string('nome');
             $table->unsignedBigInteger('categories_id');
             $table->foreign('categories_id')->references('id')->on('categories');;
-            $table->string('descricao');
-            $table->string('localizacao');
-            $table->string('face');
-            $table->string('insta');
+            $table->longText('descricao');
+            $table->longText('localizacao');
+            $table->longText('face');
+            $table->longText('insta');
             $table->string('whats');
             $table->string('email');
-            $table->string('img');
+            $table->longText('img');
             $table->timestamps();
         });
     }

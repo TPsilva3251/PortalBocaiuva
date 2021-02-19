@@ -53,18 +53,19 @@ class PartnersController extends Controller
     public function store(Request $request)
     {
         $data_form=$request->all();
+        // dd($data_form);
 
-        if($request->hasFile('img')  && $request->file('img1')->isValid())
-        {
-            $extensio = $request->img1->extension();
-            date_default_timezone_set('America/Sao_Paulo');
-            $date = date('Y-m-d H:i');
-            $name_file = "{$date}.{$extensio}";
-            $new_name=kebab_case($name_file);
-        }
+        // if($request->hasFile('img')  && $request->file('img')->isValid())
+        // {
+        //     $extensio = $request->img1->extension();
+        //     date_default_timezone_set('America/Sao_Paulo');
+        //     $date = date('Y-m-d H:i');
+        //     $name_file = "{$date}.{$extensio}";
+        //     $new_name=kebab_case($name_file);
+        // }
 
-        $data_form['img'] = $new_name;
-        $upload = $request->img->store('products');
+        // $data_form['img'] = $new_name;
+        // $upload = $request->img->store('products');
         $partners = new Partners($data_form);
         $partners->save();
 
