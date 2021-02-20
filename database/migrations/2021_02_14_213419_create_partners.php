@@ -17,7 +17,8 @@ class CreatePartners extends Migration
             $table->bigIncrements('id');
             $table->string('nome');
             $table->unsignedBigInteger('categories_id');
-            $table->foreign('categories_id')->references('id')->on('categories');;
+            $table->foreign('categories_id')->references('id')->on('categories');
+            $table->string('endereco');
             $table->longText('descricao');
             $table->longText('localizacao');
             $table->longText('face');
