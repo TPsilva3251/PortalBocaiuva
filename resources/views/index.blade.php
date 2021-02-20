@@ -1,6 +1,7 @@
 @include('/layout/template')
-<div class="imagen col-sm-12 col-md-12 col-lg-12 col-xg-12">
-    {{-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24763.114160698788!2d-43.83353741155226!3d-17.117819082656517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xab6230efb84b03%3A0xf8120c7ff129066c!2sBocai%C3%BAva%2C%20MG%2C%2039390-000!5e1!3m2!1spt-BR!2sbr!4v1572448714991!5m2!1spt-BR!2sbr" width="1325" height="450" frameborder="0" margin-left="3%;"  allowfullscreen=""></iframe><br> --}}
+<div class="imagen col-sm-12 col-md-12 col-lg-12 col-xg-12" style="background-color: #f8f9fa">
+    <img src="/imagens/portal.png" class="center">
+    <br><br>
 </div>
 
 <div class="btn-group btn-group-toggle  col-sm-12 col-md-12 col-lg-12 col-xg-12">
@@ -11,7 +12,30 @@
     <a href="/parceiro_create" class="btn btn-primary">Parceiro</a>
     <a href="/parceiro_index" class="btn btn-primary">Parceiro Index</a>
 </div>
-
+<br><br><br>
+<div class="container">
+    <section>
+        @foreach ($parceiros as $parceiro)
+            <td>
+                <div class="row g-3">
+                    <div class="part_img col-sm-3 col-md-3 col-lg-3 col-xg-3">
+                        <img src="{{ $parceiro->img }}" height="150px" width="250px" >
+                    </div>
+                    <div class="part_inf col-sm-6 col-md-6 col-lg-6 col-xg-6" style="margin-top: 1%">
+                        <label for="inf"><b>{{ $parceiro->nome }}</b></label>
+                        <br>
+                        <label for="end" class="end">End:</label>
+                        <label for="endereco"><b> {{ $parceiro->endereco }}</b></label>
+                        <br>
+                        <label style="margin: 1%" for="telefone"><i class="fas fa-phone-alt"></i> (38) 3251-3251 </label>
+                        <label style="margin: 1%" for="facebook"><i class="fab fa-facebook-f"></i> Portal Bocaiuva Oficial</label>
+                    </div>
+                </div>
+            </td>
+        @endforeach
+    </section>
+</div>
+<br><br><br><br><br>
 @include('/layout/footer')
 
 

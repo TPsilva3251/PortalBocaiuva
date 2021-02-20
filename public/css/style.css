@@ -1,3 +1,12 @@
+/*
+PALETA DE CORES
+#00667F
+#72E3FF
+#00CDFF
+#687A7F
+#00A4CC
+*/
+
 .division-primary {
     background-color: #106ea5;
     height: 50px;
@@ -26,4 +35,32 @@ iframe {
     position: fixed;
     bottom: 0%;
     width: 100%;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 50%; */
+}
+
+.part_inf {
+    font-family: 'Lobster', cursive;
+    font-style: oblique;
+}
+
+.fab {
+    color: #687A7F;
+    text-decoration-color: blue;
+    font-size: 1em;
+}
+
+.fas {
+    color: #687A7F;
+    text-decoration-color: blue;
+    font-size: 1em;
+}
+
+.end {
+    color: #687A7F;
 }

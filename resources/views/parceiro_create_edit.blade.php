@@ -28,13 +28,13 @@
         <br>
         <div class="row g-3">
 
-            {{-- <div class="col-4">
-                <input type="text" class="form-control" name="localizacao" placeholder="Localização">
-            </div> --}}
-            <div class="col-6">
+            <div class="col-4">
+                <input type="text" class="form-control" name="endereco" placeholder="Endereço">
+            </div>
+            <div class="col-4">
                 <input type="text" class="form-control" name="email" placeholder="email">
             </div>
-            <div class="col-6">
+            <div class="col-4">
                 <input type="text" class="form-control" name="face" placeholder="Facebook">
             </div>
         </div>

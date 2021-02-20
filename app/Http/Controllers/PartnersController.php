@@ -29,7 +29,7 @@ class PartnersController extends Controller
         // dd($parceiros,$categorias);
         // $request->imagem;
         // dd($request);
-        return view('parceiro_index', compact('parceiros','categorias'));
+        return view('index', compact('parceiros','categorias'));
     }
 
     /**
