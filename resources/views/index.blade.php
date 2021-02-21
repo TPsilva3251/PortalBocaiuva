@@ -13,27 +13,39 @@
     <a href="/parceiro_index" class="btn btn-primary">Parceiro Index</a>
 </div>
 <br><br><br>
-<div class="container">
-    <section>
-        @foreach ($parceiros as $parceiro)
+<div class="row">
+    <div class="outdor col-9">
+        <section>
+            @foreach ($parceiros as $parceiro)
+                <td>
+                    <div class="row g-3">
+                        <div class="part_img col-4">
+                            <img src="{{ $parceiro->img }}" height="150px" width="250px" >
+                        </div>
+                        <div class="part_inf col-4" style="margin-top: 1%">
+                            <label for="inf"><b>{{ $parceiro->nome }}</b></label>
+                            <br>
+                            <label for="end" class="end">End:</label>
+                            <label for="endereco"><b> {{ $parceiro->endereco }}</b></label>
+                            <br>
+                            <label style="margin: 1%" for="telefone"><i class="fas fa-phone-alt"></i> (38) 3251-3251 </label>
+                            <label style="margin: 1%" for="facebook"><i class="fab fa-facebook-f"></i> Portal Bocaiuva Oficial</label>
+                        </div>
+                    </div>
+                    <br><br>
+                </td>
+            @endforeach
+        </section>
+    </div>
+    <div class="teste">
+        <label for="mais">Mais categorias</label>
+        <br><br>
+        @foreach ($categorias as $categoria)
             <td>
-                <div class="row g-3">
-                    <div class="part_img col-sm-3 col-md-3 col-lg-3 col-xg-3">
-                        <img src="{{ $parceiro->img }}" height="150px" width="250px" >
-                    </div>
-                    <div class="part_inf col-sm-6 col-md-6 col-lg-6 col-xg-6" style="margin-top: 1%">
-                        <label for="inf"><b>{{ $parceiro->nome }}</b></label>
-                        <br>
-                        <label for="end" class="end">End:</label>
-                        <label for="endereco"><b> {{ $parceiro->endereco }}</b></label>
-                        <br>
-                        <label style="margin: 1%" for="telefone"><i class="fas fa-phone-alt"></i> (38) 3251-3251 </label>
-                        <label style="margin: 1%" for="facebook"><i class="fab fa-facebook-f"></i> Portal Bocaiuva Oficial</label>
-                    </div>
-                </div>
+                <p><a href="#">{{$categoria->nome}}</a></p>
             </td>
         @endforeach
-    </section>
+    </div>
 </div>
 <br><br><br><br><br>
 @include('/layout/footer')
