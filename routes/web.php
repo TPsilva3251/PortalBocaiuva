@@ -13,8 +13,8 @@
 
 Route::get('/', 'PartnersController@index');
 
-Route::get('/fashions' , 'FashionsController@index')->name('fashions.index');
-Route::post('/fashions/store','FashionsController@store')->name('imagen');
+// Route::get('/fashions' , 'FashionsController@index')->name('fashions.index');
+// Route::post('/fashions/store','FashionsController@store')->name('imagen');
 
 Route::get('/historia', function () {
     return view('historia');

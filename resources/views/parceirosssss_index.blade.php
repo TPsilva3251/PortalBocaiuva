@@ -16,7 +16,6 @@
                             <div class="col-6">
                                 <iframe src="{{$parceiro->localizacao}}" height="250px" width="350px" frameborder="0"></iframe>
                             </div>
-
                         </div>
                     </div>
                 </td>
