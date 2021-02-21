@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Categories;
+use App\Models\Partners;
 
 use Illuminate\Http\Request;
 
@@ -12,11 +13,13 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    private $categoria;
+    private $categories;
+    private $partners;
 
-    public function __construct(categories $categoria)
+    public function __construct(categories $categories, partners $partners)
     {
-        $this->categoria=$categoria;
+        $this->categories=$categories;
+        $this->partners=$partners;
     }
     public function index()
     {
@@ -41,10 +44,13 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
+        $parceiros = $this->partners->all();
+        $categorias = $this->categories->all();
+        // dd($parceiros);
         $data=$request->only('nome');
 // dd($data);
         $categories = categories::create($data);
-         return view('index');
+         return view('index', compact('parceiros','categorias'));
 
     }
 
