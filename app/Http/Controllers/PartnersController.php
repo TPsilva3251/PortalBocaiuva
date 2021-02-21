@@ -52,6 +52,9 @@ class PartnersController extends Controller
      */
     public function store(Request $request)
     {
+        $parceiros = $this->partners->all();
+        // dd($parceiros);
+        $categorias = $this->categories->all();
         $data_form=$request->all();
         // dd($data_form);
 
@@ -66,8 +69,11 @@ class PartnersController extends Controller
 
         // $data_form['img'] = $new_name;
         // $upload = $request->img->store('products');
-        $partners = new Partners($data_form);
-        $partners->save();
+        // $partners = new Partners($data_form);
+
+        $partners=partners::create($data_form);
+
+        return view('index', compact('parceiros','categorias'));
 
     }
 
