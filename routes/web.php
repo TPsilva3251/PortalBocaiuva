@@ -33,14 +33,27 @@ Route::get('/quem_somos', function () {
 });
 //
 //
-Route::get('/categorias', function () {
-    return view('categoria_create');
-});
+// Route::get('/categorias', function () {
+//     return view('categoria_create');
+// });
 Route::post('/categories/create','CategoriesController@store')->name('create_categoria');
 //
 //
-Route::get('/parceiro_create','PartnersController@create');
+// Route::get('/parceiro_create','PartnersController@create')->middleware('auth');
 
 Route::post('/parceiro/create','PartnersController@store')->name('create_parceiro');
 
 Route::get('/parceiro_index', 'PartnersController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/categorias', function () {
+        return view('categoria_create');
+    });
+    Route::get('/parceiro_create','PartnersController@create');
+    Route::get('/auth/register', function () {});
+    // Route::get('admin/user/profile', function () {});
+});
