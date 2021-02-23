@@ -21,8 +21,14 @@ class PartnersController extends Controller
         $this->partners=$partners;
         $this->categories=$categories;
     }
+
+    public function search(Request $request)
+    {
+        dd('chegou');
+    }
     public function index(Request $request)
     {
+        // dd('esta');
         $parceiros = $this->partners->all();
         // dd($parceiros);
         $categorias = $this->categories->all();
