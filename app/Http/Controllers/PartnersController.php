@@ -22,19 +22,10 @@ class PartnersController extends Controller
         $this->categories=$categories;
     }
 
-    public function search(Request $request)
-    {
-        dd('chegou');
-    }
     public function index(Request $request)
     {
-        // dd('esta');
         $parceiros = $this->partners->all();
-        // dd($parceiros);
         $categorias = $this->categories->all();
-        // dd($parceiros,$categorias);
-        // $request->imagem;
-        // dd($request);
         return view('index', compact('parceiros','categorias'));
     }
 
@@ -59,10 +50,8 @@ class PartnersController extends Controller
     public function store(Request $request)
     {
         $parceiros = $this->partners->all();
-        // dd($parceiros);
         $categorias = $this->categories->all();
         $data_form=$request->all();
-        // dd($data_form);
 
         // if($request->hasFile('img')  && $request->file('img')->isValid())
         // {
