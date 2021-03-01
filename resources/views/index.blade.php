@@ -1,18 +1,11 @@
 @include('/layout/template')
+@include('/filter')
+
 <div class="imagen col-sm-12 col-md-12 col-lg-12 col-xg-12">
     <img src="/imagens/test.png" id="imgport">
     <br><br>
 </div>
-    {{-- <div class="grupo-search input-group">
-        <div class="input-group-prepend col-5">
-            <div class="input-group mb-3">
-                <input type="text" id="text-search" class="form-control" placeholder="O que você procura?" aria-label="Username" aria-describedby="basic-addon1">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
-                </div>
-            </div>
-        </div>
-</div> --}}
+
 
 <div class="btn-group btn-group-toggle  col-sm-12 col-md-12 col-lg-12 col-xg-12">
     <a href="/historia" class="btn btn-primary">História</a>
@@ -23,6 +16,7 @@
     <a href="/parceiro_index" class="btn btn-primary">Parceiro Index</a>
 </div>
 <br><br><br>
+
 <div class="row g-3">
     <div class="outdor col-9">
         <section>
@@ -47,7 +41,7 @@
             @endforeach
         </section>
     </div>
-    <div class="teste col-1">
+    <div class="teste col-2">
         <label for="mais">Mais categorias</label>
         <br><br>
         @foreach ($categorias as $categoria)
@@ -60,21 +54,4 @@
 <br><br><br><br><br>
 @include('/layout/footer')
 
-<script>
-    // $('#text-search').keypress(function (){
-    //     console.log("tbm");
-    // });
-    $('#text-search').keypress(function (e) {
 
-    });
-    $('#basic-addon1').click(function(){
-        let valor = $('#text-search').val();
-        console.log(valor);
-    });
-    $("#text-search").keydown(function (e) {
-        if (e.keyCode == 13) {
-            let valor = $('#text-search').val();
-        console.log(valor);
-        }
-    });
-</script>
