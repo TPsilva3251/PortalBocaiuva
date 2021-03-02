@@ -54,10 +54,11 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button> --}}
             <div class="input-group-prepend">
                 <div class="input-group mb-3">
-                    <input type="text" id="text-search" class="form-control" placeholder="O que você procura?" aria-label="Username" aria-describedby="basic-addon1">
-                    <div class="input-group-prepend">
+                    <input type="text" id="search" name="search" class="form-control" placeholder="O que você procura?" aria-label="Username" aria-describedby="basic-addon1">
+                    {{-- <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
-                    </div>
+                    </div> --}}
+                    <button type="submit" class="btn btn-outline-secondary">Pesquisar</button>
                 </div>
             </div>
           </form>
@@ -65,3 +66,14 @@
       </nav>
 </body>
 </html>
+<script>
+
+    $('#basic-addon1').click(function(){
+        let valor = $('#search').val();
+    });
+    $("#search").keydown(function (e) {
+        if (e.keyCode == 13) {
+            let valor = $('#search').val();
+        }
+    });
+</script>

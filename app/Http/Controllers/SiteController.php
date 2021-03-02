@@ -26,12 +26,13 @@ class SiteController extends Controller
     {
         $data=$request;
         $parceiros = $this->partners
-        ->where('nome', 'like', '%' . $data['filter'] . '%')
-        ->orwhere('descricao', 'like', '%' . $data['filter'] . '%')
+        ->where('nome', 'like', '%' . $data['search'] . '%')
+        ->orwhere('descricao', 'like', '%' . $data['search'] . '%')
         ->orderBy('id', 'DESC')
         ->get();
+        // dd($parceiros);
         $categorias = $this->categories->all();
-        return view('index', compact('parceiros','categorias'));
+        return view('index', compact('parceiros','categorias','data'));
     }
 
 
@@ -101,8 +102,5 @@ class SiteController extends Controller
         //
     }
 
-    public function search(Request $request)
-    {
-        dd("aqui");
-    }
+
 }
