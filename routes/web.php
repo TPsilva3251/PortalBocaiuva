@@ -51,9 +51,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/categorias', function () {
-        return view('categoria_create');
-    });
+    Route::get('/categorias','CategoriesController@create');
     Route::get('/parceiro_create','PartnersController@create');
     Route::get('/auth/register', function () {});
     // Route::get('admin/user/profile', function () {});
