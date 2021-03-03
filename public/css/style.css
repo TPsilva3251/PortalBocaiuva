@@ -77,4 +77,21 @@ PALETA DE CORES
     
     .content>h1 {
         text-align: center;
+        width: 50%;
+        font-size: 2vw;
+        margin-left: auto;
+        margin-right: auto;
     }
+    
+    .colcarouse {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .outdor {
+        width: 70%;
+    }
+    /* .part_img {
+        width: 30%;
+    } */

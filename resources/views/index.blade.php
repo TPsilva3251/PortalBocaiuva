@@ -21,12 +21,12 @@
 @include('/carrosel')
     <div class="content">
         @if (count($parceiros) < 1)
-            <h1>Sem resultados para <u>{{ $data->search }}</u>
+            <h1>Sem resultados para <u>{{ $data->search }}</u></h1>
         @else
             <h1>Resultados para <u>{{ $data->search }}</u></h1>
         @endif
         <div class="result row g-3">
-            <div class="outdor col">
+            <div class="outdor">
                 <section>
                     <br><br>
                     @foreach ($parceiros as $parceiro)
@@ -50,7 +50,7 @@
                     @endforeach
                 </section>
             </div>
-            <div class="teste col-2">
+            {{-- <div class="teste col-2">
                 <label for="mais">Mais categorias</label>
                 <br><br>
                 @foreach ($categorias as $categoria)
@@ -58,7 +58,16 @@
                         <p><a href="#">{{$categoria->nome}}</a></p>
                     </td>
                 @endforeach
-            </div>
+            </div> --}}
+            <ul class="nav flex-column col-2">
+                <br><br>
+                <label for="mais">Mais categorias</label>
+                @foreach ($categorias as $categoria)
+                    <li>
+                        <a class="nav-link active" href="#">{{$categoria->nome}}</a>
+                    </li>
+                @endforeach
+            </ul>
         </div>
     </div>
 @else
@@ -66,16 +75,6 @@
 @endif
 <br><br><br><br><br>
 @include('/layout/footer')
-<script>
 
-    $('#basic-addon1').click(function(){
-        let valor = $('#s').val();
-    });
-    $("#s").keydown(function (e) {
-        if (e.keyCode == 13) {
-            let valor = $('#s').val();
-        }
-    });
-</script>
 
 
