@@ -52,6 +52,7 @@ class PartnersController extends Controller
         $parceiros = $this->partners->all();
         $categorias = $this->categories->all();
         $data_form=$request->all();
+        // dd($data_form);
 
         // if($request->hasFile('img')  && $request->file('img')->isValid())
         // {
@@ -68,7 +69,8 @@ class PartnersController extends Controller
 
         $partners=partners::create($data_form);
 
-        return view('index', compact('parceiros','categorias'));
+        // return view('index', compact('parceiros','categorias'));
+        return redirect()-> route('index',compact('parceiros','categorias'));
 
     }
 
