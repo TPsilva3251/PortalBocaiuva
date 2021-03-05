@@ -17,7 +17,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <img src="imagens/mascote.png" height="100px" style="margin: 3%">
+        <img src="/imagens/mascote.png" height="100px" style="margin: 3%">
         <a class="navbar-brand" href="/">Bocaiúva</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -50,19 +50,21 @@
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li> --}}
             </ul>
-          <form class="form-inline my-2 my-lg-0">
-            {{-- <input class="form-control mr-sm-2" type="search" placeholder="O que você procura?" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button> --}}
-            <div class="input-group-prepend">
-                <div class="input-group mb-3">
-                    <input type="text" id="search" name="search" class="form-control" placeholder="O que você procura?" aria-label="Username" aria-describedby="basic-addon1">
-                    {{-- <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
-                    </div> --}}
-                    <button type="submit" class="btn btn-outline-secondary">Pesquisar</button>
-                </div>
-            </div>
-          </form>
+            <form action="{{ route('index') }}" method="get">
+                <form class="form-inline my-2 my-lg-0">
+                    {{-- <input class="form-control mr-sm-2" type="search" placeholder="O que você procura?" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button> --}}
+                    <div class="input-group-prepend">
+                        <div class="input-group mb-3">
+                            <input type="text" id="search" name="search" class="form-control" placeholder="O que você procura?" aria-label="Username" aria-describedby="basic-addon1">
+                            {{-- <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+                            </div> --}}
+                            <button type="submit" class="btn btn-outline-secondary">Pesquisar</button>
+                        </div>
+                    </div>
+                </form>
+            </form>
         </div>
       </nav>
 </body>

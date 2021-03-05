@@ -12,7 +12,8 @@
 */
 
 // Route::get('/', 'PartnersController@index');
-Route::get('/', 'SiteController@index');
+Route::get('/', 'SiteController@index')->name('index');
+Route::get('/show/{id}', 'SiteController@show');
 
 // Route::get('/fashions' , 'FashionsController@index')->name('fashions.index');
 // Route::post('/fashions/store','FashionsController@store')->name('imagen');
