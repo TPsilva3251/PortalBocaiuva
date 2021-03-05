@@ -7,7 +7,7 @@
 
 
 
-{{-- <div class="btn-group btn-group-toggle  col-sm-12 col-md-12 col-lg-12 col-xg-12">
+<div class="btn-group btn-group-toggle  col-sm-12 col-md-12 col-lg-12 col-xg-12">
     <a href="/historia" class="btn btn-primary">História</a>
     <a href="/dados_demograficos" class="btn btn-primary">Dados Demográficos</a>
     <a href="/pontos_turisticos" class="btn btn-primary">Pontos Turísticos</a>
@@ -15,7 +15,7 @@
     <a href="/parceiro_create" class="btn btn-primary">Parceiro</a>
     <a href="/parceiro_index" class="btn btn-primary">Parceiro Index</a>
 </div>
-<br><br><br> --}}
+<br><br><br>
 
 @if (isset($data->search))
 @include('/carrosel')
@@ -30,11 +30,13 @@
                 <section>
                     <br><br>
                     @foreach ($parceiros as $parceiro)
+                    <a href="/show/{{ $parceiro->id }}">
                         <td>
                             <div class="row g-3">
                                 <div class="part_img col">
                                     <img src="{{ $parceiro->img }}" height="150px" width="250px" >
                                 </div>
+
                                 <div class="part_inf col" style="margin-top: 1%">
                                     <label for="inf"><b>{{ $parceiro->nome }}</b></label>
                                     <br>
@@ -47,6 +49,7 @@
                             </div>
                             <br><br>
                         </td>
+                    </a>
                     @endforeach
                 </section>
             </div>
@@ -75,6 +78,4 @@
 @endif
 <br><br><br><br><br>
 @include('/layout/footer')
-
-
 

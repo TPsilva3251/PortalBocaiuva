@@ -65,7 +65,11 @@ class SiteController extends Controller
      */
     public function show($id)
     {
-        //
+        $parceiro = $this->partners->where('id',$id)->first();
+        $categorias = $this->categories->all();
+        // $categoria = $categorias;
+        // dd($categorias);
+        return view('showpartners', compact('parceiro','categoria'));
     }
 
     /**
