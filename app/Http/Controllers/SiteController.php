@@ -69,7 +69,7 @@ class SiteController extends Controller
         // $categoria = $parceiro->categoria();
         // $categoria = $categorias;
         // dd($parceiro->categories->nome);
-        return view('showpartners', compact('parceiro','categorias'));
+        return view('showpartners', compact('parceiro'));
     }
 
     /**
