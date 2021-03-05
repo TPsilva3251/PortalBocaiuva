@@ -23,7 +23,8 @@ class CategoriesController extends Controller
     }
     public function index()
     {
-        //
+        $categorias = $this->categories->all();
+        return view('categoria_create',compact('categorias'));
     }
 
     /**
@@ -33,7 +34,8 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('categoria_create');
+        $categorias = $this->categories->all();
+        return view('categoria_create',compact('categorias'));
     }
 
     /**
@@ -44,13 +46,10 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $parceiros = $this->partners->all();
         $categorias = $this->categories->all();
-        // dd($parceiros);
         $data=$request->only('nome');
-// dd($data);
         $categories = categories::create($data);
-         return view('index', compact('parceiros','categorias'));
+        return redirect()-> route('index_categoria',compact('categorias'));
 
     }
 
@@ -73,7 +72,8 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $teste = $this->categories->where('id',$id)->first();
+        dd($teste);
     }
 
     /**
@@ -85,7 +85,7 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -96,6 +96,6 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd("deletar");
     }
 }

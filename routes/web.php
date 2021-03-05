@@ -38,7 +38,9 @@ Route::get('/quem_somos', function () {
 // Route::get('/categorias', function () {
 //     return view('categoria_create');
 // });
+Route::get('/categories/create','CategoriesController@index')->name('index_categoria');
 Route::post('/categories/create','CategoriesController@store')->name('create_categoria');
+Route::get('/categoriesdel/{id}','CategoriesController@edit');
 //
 //
 // Route::get('/parceiro_create','PartnersController@create')->middleware('auth');

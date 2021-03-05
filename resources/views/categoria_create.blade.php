@@ -1,4 +1,8 @@
 @include('/layout/template')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
@@ -52,10 +56,44 @@
         @yield('content')
     </main>
 </div>
-<form action="{{ route('create_categoria') }}" method="post">
-    @csrf
-    <input type="text" name="nome">
+<div class="container">
+    <form action="{{ route('create_categoria') }}" method="post">
+        @csrf
+        <div class="form-inline">
+            <div class="form-group col-6" style="align-content: flex-end" >
+                <input type="text" class="form-control col-8" name="nome" placeholder="Cadastrar Categoria">
+            </div>
+            <button type="submit" class="btn btn-success" id="submit">Salvar</button>
+        </div>
+    </form>
+    <br><br>
+    <table id="cat" class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" style="width: 25%">id</th>
+            <th scope="col" style="width: 50%">Nome</th>
+            <th scope="col" style="width: 25%">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+            @foreach ($categorias as $categoria)
+            <tr>
+                <td>{{ $categoria->id }}</td>
+                <td>{{ $categoria->nome }}</td>
+                <td>
+                    <a href="categoriesdel/{{ $categoria->id }}"><button class="btn btn-warning">Editar</button></a>
 
-    <button type="submit" class="btn btn-success" id="submit">Salvar</button>
+                    <button class="btn btn-danger">Excluir</button>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+      </table>
+</div>
+<script>
+    $(document).ready(function() {
+    $('#cat').DataTable();
+} );
 
-</form>
+
+</script>
