@@ -1,4 +1,57 @@
 @include('/layout/template')
+<div id="app">
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left Side Of Navbar -->
+                <ul class="navbar-nav mr-auto">
+
+                </ul>
+
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ml-auto">
+                    <!-- Authentication Links -->
+                    @guest
+                        {{-- <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li> --}}
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endguest
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="py-4">
+        @yield('content')
+    </main>
+</div>
 <form action="{{ route('create_parceiro') }}" method="post" enctype="multipart/form-data">
     @csrf
 
@@ -52,6 +105,7 @@
             <div class="col-4">
                 <div class="img-group">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24763.114160698788!2d-43.83353741155226!3d-17.117819082656517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xab6230efb84b03%3A0xf8120c7ff129066c!2sBocai%C3%BAva%2C%20MG%2C%2039390-000!5e1!3m2!1spt-BR!2sbr!4v1572448714991!5m2!1spt-BR!2sbr" width="350px" height="350px"  frameborder="0" margin-left="3%;"  allowfullscreen="" id="local"></iframe><br>
+                    {{-- <input type="text" class="form-control" name="loca" id="locu" placeholder="Digite a url do local"> --}}
                     <input type="text" class="form-control" name="localizacao" id="locurl" placeholder="Digite a url do local">
                     <br><br>
                     <button type="button" class="btn btn-outline-secondary" id="loc">Visualizar</button>
@@ -79,7 +133,9 @@
        document.getElementById('img').src = url;
     });
     $('#loc').click(function(){
-        let url = $('#locurl').val();
+        let end = $('#locurl').val();
+        let url = end.substring(13, end.length - 88);
         document.getElementById('local').src = url;
+        document.getElementById('locurl').value = url;
     });
 </script>
