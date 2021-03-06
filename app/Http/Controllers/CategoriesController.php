@@ -70,9 +70,9 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($whats)
     {
-        $teste = $this->categories->where('id',$id)->first();
+        $teste = $this->partners->where('whats',$whats)->first();
         dd($teste);
     }
 

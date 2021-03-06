@@ -55,6 +55,12 @@ PALETA DE CORES
         font-size: 1em;
     }
     
+    .iczap {
+        font-size: 3em;
+        color: #25D366;
+        padding-right: 10px;
+    }
+    
     .fas {
         color: #687A7F;
         text-decoration-color: blue;
@@ -110,4 +116,16 @@ PALETA DE CORES
         text-align: center;
         margin-left: auto;
         margin-right: auto;
+    }
+    
+    .zap {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .zap>a>button {
+        width: 20%;
+        border: 2px solid #106ea5;
+        border-radius: 50%;
     }
