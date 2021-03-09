@@ -2,7 +2,7 @@
 
 
 
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-md-center">
         <div class="row justify-content-md-center">
             <div class="imagen">
@@ -21,18 +21,37 @@
         <a href="/categoriesdel/{{ $parceiro->whats }}"><i class="iczap fab fa-whatsapp"></i></a>
     </div>
     <br><br><br><br>
-    <div class="row justify-content-md-center">
-        <div class="web col-md-auto">
-            <i class="fas fa-globe-americas" style="font-size: 3em"></i>
+    <div class="web">
+        <div class="row justify-content-md-center">
+            <div class="col-3">
+                <i class="iweb fas fa-globe-americas"></i>
+            </div>
+            <div class="col-3">
+                <i class="isocial fas fa-users"></i>
+            </div>
+            <div class="col-3">
+                <i class="ilocal fas fa-map-marked-alt"></i>
+            </div>
         </div>
-
+        <br>
+        <div class="row justify-content-md-center">
+            <div class="lmail col-3">
+                <p>email / site</p>
+            </div>
+            <div class="lrede col-3">
+                <p>rede social</p>
+            </div>
+            <div class="lendereco col-3">
+                <p>endereço</p>
+                <h6>{{$parceiro->endereco}}</h6>
+            </div>
+        </div>
     </div>
     <br><br>
-    <div class="row justify-content-md-center">
-        <p>email-site</p>
-        <p>rede social</p>
-        <p>endereço</p>
-    </div>
+   <div class="container">
+        <iframe src={{$parceiro->localizacao}} frameborder="0"   allowfullscreen="" ></iframe>
+   </div>
+
     {{-- <div class="row justify-content-md-center">
         <div class="row justify-content-md-center">
             <div class="row g-3">
