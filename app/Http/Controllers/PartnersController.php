@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Partners;
 use App\Models\Categories;
+use File;
 
 use Illuminate\Http\Request;
 
@@ -52,21 +53,30 @@ class PartnersController extends Controller
         $parceiros = $this->partners->all();
         $categorias = $this->categories->all();
         $data_form=$request->all();
-        // dd($data_form);
+        // dd($data_form['img']);
 
-        // if($request->hasFile('img')  && $request->file('img')->isValid())
-        // {
-        //     $extensio = $request->img1->extension();
-        //     date_default_timezone_set('America/Sao_Paulo');
-        //     $date = date('Y-m-d H:i');
-        //     $name_file = "{$date}.{$extensio}";
-        //     $new_name=kebab_case($name_file);
-        // }
 
-        // $data_form['img'] = $new_name;
+        if($request->hasFile('img')  && $request->file('img')->isValid())
+        {
+            $extensio = $request->img->extension();
+            // date_default_timezone_set('America/Sao_Paulo');
+            // $date = date('Y-m-d H:i');
+            // $name_file = "{$date}.{$extensio}";
+            // $new_name=kebab_case(public_path().'/storage/products/'.$name_file);
+            $image = $request->file('img');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/storage/products');
+
+
+            $image->move($destinationPath, $name);
+            // dd($image,$name);
+        }
+
+        $data_form['img'] = '/storage/products/'.$name;
+        // File::move($data_form['img'],public_path().'/storage/products'.$name_file);
         // $upload = $request->img->store('products');
         // $partners = new Partners($data_form);
-
+// dd($data_form);
         $partners=partners::create($data_form);
 
         // return view('index', compact('parceiros','categorias'));

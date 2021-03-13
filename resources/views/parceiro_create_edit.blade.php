@@ -111,7 +111,7 @@
                     <button type="button" class="btn btn-outline-secondary" id="loc">Visualizar</button>
                 </div>
             </div>
-            <div class="col offset-4">
+            {{-- <div class="col offset-4">
                 <div class="img-group">
                     <img src="https://i.pinimg.com/originals/de/f6/96/def69643889ee29e232637646e839064.jpg" width="350" height="350px" name="img" id="img">
                     <br><br>
@@ -119,7 +119,27 @@
                     <br>
                     <button type="button" class="btn btn-outline-secondary" id="bimg">Visualizar</button>
                 </div>
-            </div>
+            </div> --}}
+
+                <div class="col-md-6">
+                    <label>Logomarca</label>
+                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail" id="image-holder">
+                            <img src="http://demos.creative-tim.com/material-dashboard-pro/assets/img/image_placeholder.jpg"  width="350px" height="350px" >
+                        </div>
+                        <div>
+                            <span class="btn btn-file">
+                                <span class="btn btn-default"><i class="fa fa-fw fa-upload"></i>Escolher</span>
+                            <input type="hidden">
+                            <input type="file" id="fileUpload" name="img">
+                            <div class="ripple-container"></div>
+                            </span>
+                            <a onclick="limpa()" class="btn btn-default">
+                                <i class="fa fa-times"></i> Remover</a>
+                        </div>
+                    </div>
+                </div>
+
         </div>
         <button type="submit" class="btn btn-success" id="submit">Salvar</button>
     </div>
@@ -132,10 +152,33 @@
        let url = $('#timg').val();
        document.getElementById('img').src = url;
     });
+    // //////////////////////////////////////////////////////////////////////////
     $('#loc').click(function(){
         let end = $('#locurl').val();
         let url = end.substring(13, end.length - 88);
         document.getElementById('local').src = url;
         document.getElementById('locurl').value = url;
+    });
+    // /////////////////////////////////////////////////////////////////////////
+    $("#fileUpload").on('change', function() {
+        if (typeof(FileReader) != "undefined") {
+            var image_holder = $("#image-holder");
+            image_holder.empty();
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $("<img />", {
+                    "src": e.target.result,
+                    "class": "thumb-image"
+                }).appendTo(image_holder);
+            }
+            image_holder.show();
+            reader.readAsDataURL($(this)[0].files[0]);
+        } else {
+            Swal.fire(
+                'ERRO',
+                'Este navegador nao suporta FileReader!',
+                'error'
+            )
+        }
     });
 </script>
